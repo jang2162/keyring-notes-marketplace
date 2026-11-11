@@ -16,7 +16,7 @@
 
 - `package.json` 의 `"@keyring-notes/core": "github:jang2162/keyring-notes#<커밋>&path:packages/core"` 가 받을 앱 커밋이다. pnpm 이 GitHub 압축본(codeload)을 받아 `packages/core` 만 꺼내므로, 빌드 이미지에 git 이 없어도 된다. 전체 커밋 SHA 만 쓴다. **`v*` 태그는 쓰지 않는다** — 앱 저장소에서 `v*` 태그를 밀면 macOS 릴리스가 돈다. 이 값을 위한 태그를 앱 저장소에 만들지도 않는다. 예전 빌드 인자 `KEYRING_REF` 는 없어졌다.
 - **core 를 쓰는 방식.** core 의 `exports` 는 `dist/`(빌드 결과, git 에 없음)와 `keyring-source` 조건(TypeScript 원본)을 가진다. git 의존성에는 `dist/` 가 없고, core 의 `tsconfig.build.json` 은 앱 저장소의 `tsconfig.base.json` 을 상속해 하위 경로만 받은 core 로는 `tsc` 빌드가 안 된다. 그래서 늘 `keyring-source` 조건으로 원본을 읽는다: `tsc --noEmit`(`customConditions`, core 원본도 함께 검사 — DOM lib 필요), `vitest`(`resolve.conditions` + `server.deps.inline` — `node_modules` 안의 .ts 를 변환), `pnpm keyring-market`(`tsx --conditions=keyring-source`), `pnpm build`(esbuild `conditions` 로 core·`yaml`·`diff` 까지 `dist/cli.js` 하나에 묶는다). 실행 이미지가 `node_modules` 없이 돈다.
-- **올릴 때.** 앱의 패키지 형식(`index.json`·매니페스트·검사 규칙·`cli.pkg_*` 메시지 — 모두 `packages/core`)이 바뀌어 앱 `main` 에 들어가면 그 커밋으로 올린다. 공식 마켓의 index 는 받는 앱이 읽을 수 있는 형식이어야 하므로, 형식을 바꾼 앱 릴리스보다 늦지 않게 올린다. core 가 이 저장소가 쓰는 함수(`checkPackageFiles`·`parseRepoIndex`·`manifestDisplay` 등)의 꼴을 바꾸면 `src/` 도 같은 커밋에서 맞춘다.
+- **올릴 때.** 앱의 패키지 형식(`index.json`·매니페스트·검사 규칙 — `packages/core`. CLI 의 결과 글(`cli.pkg_*`)은 이 저장소 `src/lang.ts` 가 갖는다)이 바뀌어 앱 `main` 에 들어가면 그 커밋으로 올린다. 공식 마켓의 index 는 받는 앱이 읽을 수 있는 형식이어야 하므로, 형식을 바꾼 앱 릴리스보다 늦지 않게 올린다. core 가 이 저장소가 쓰는 함수(`checkPackageFiles`·`parseRepoIndex`·`manifestDisplay` 등)의 꼴을 바꾸면 `src/` 도 같은 커밋에서 맞춘다.
 - **올리는 법.**
   1. `package.json` 의 커밋 SHA 를 바꾼다.
   2. `pnpm install` 로 `pnpm-lock.yaml` 을 고친다(lock 의 `codeload.github.com/…/tar.gz/<커밋>` 이 바뀐다).

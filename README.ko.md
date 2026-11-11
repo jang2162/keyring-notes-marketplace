@@ -19,7 +19,7 @@ Keyring Notes 는 마켓 저장소에서 위젯·테마·언어를 설치합니�
 - 잘못된 패키지가 있으면 마지막으로 성공한 `index.json` 을 그대로 두고 이유를 로그에 남깁니다.
 - 파일을 압축하지 않고 바이트 그대로, 앱이 기대하는 캐시 헤더와 함께 내줍니다.
 - 패키지 폴더를 읽기 전용으로 마운트하므로, 이미지에는 패키지가 들어가지 않습니다.
-- `keyring-market check`·`index` 로 판 폴더를 검사하고 `index.json` 을 만듭니다. 출력과 종료 코드는 Keyring Notes 의 `keyring pkg` 와 같습니다.
+- `keyring-market check`·`index` 로 판 폴더를 검사하고 `index.json` 을 만듭니다. 출력과 종료 코드는 Keyring Notes 의 옛 `keyring pkg` 와 같습니다.
 - 옛 Docker 빌더로 빌드되므로 BuildKit(`docker buildx`)이 없어도 됩니다.
 
 ## 설치

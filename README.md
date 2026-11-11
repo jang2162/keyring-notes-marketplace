@@ -18,7 +18,7 @@ It is for people who run their own marketplace, publicly or on a home network, a
 - Keeps the last good `index.json` when a package is invalid, and logs the reason.
 - Serves files byte for byte, uncompressed, with the cache headers the app expects.
 - Mounts your package folder read-only, so the image never holds your packages.
-- Checks version folders and builds `index.json` with `keyring-market check` and `index`. Output and exit codes match `keyring pkg` in Keyring Notes.
+- Checks version folders and builds `index.json` with `keyring-market check` and `index`. Output and exit codes match the former `keyring pkg` command of Keyring Notes.
 - Builds with the classic Docker builder, so BuildKit (`docker buildx`) is not required.
 
 ## Installation
