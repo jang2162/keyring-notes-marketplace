@@ -19,6 +19,7 @@ FROM ${NODE_IMAGE} AS source
 # the package format or the market server. Do not use a v* tag: those run the app's macOS release.
 ARG KEYRING_REF=fbdad211a7511620cc67504d6f8900d583c5cb11
 ARG KEYRING_REPO=https://github.com/jang2162/keyring-notes
+RUN echo "$KEYRING_REF" | grep -Eqx '[0-9a-f]{40}' || { echo 'KEYRING_REF must be a full commit SHA' >&2; exit 1; }
 # A GitHub archive needs no git in the build image.
 ADD ${KEYRING_REPO}/archive/${KEYRING_REF}.tar.gz /tmp/keyring-notes.tar.gz
 RUN mkdir /src \

@@ -1,0 +1,3 @@
+# The Dockerfile copies nothing from the build context, so send none of it
+# (keeps packages/ and .env away from the Docker daemon).
+*
