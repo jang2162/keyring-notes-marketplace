@@ -1,0 +1,30 @@
+{
+  "name": "keyring-notes-marketplace",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "keyring-market": "dist/cli.js"
+  },
+  "scripts": {
+    "keyring-market": "tsx --conditions=keyring-source src/cli.ts",
+    "build": "node scripts/build.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@keyring-notes/core": "github:jang2162/keyring-notes#f9434044394be47a215f03a1d6f6c5ec5539e4ca&path:packages/core"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "packageManager": "pnpm@10.33.0"
+}

@@ -8,7 +8,8 @@
 
 Keyring Notes installs widgets, themes and languages from marketplace repositories, which are folders of static files with an `index.json`.
 This repository builds a small server that rebuilds `index.json` from your package folder and serves the files as the app expects.
-It holds only the Docker setup: the server code comes from the [Keyring Notes repository](https://github.com/jang2162/keyring-notes) at a fixed commit, and your packages stay in a folder on your server.
+The same code runs as the `keyring-market` command line, which checks packages and builds `index.json` for a static host.
+The package checks come from the [Keyring Notes repository](https://github.com/jang2162/keyring-notes) at a fixed commit, and your packages stay in a folder on your server.
 It is for people who run their own marketplace, publicly or on a home network, and for the operators of the official one.
 
 ## Features
@@ -17,6 +18,7 @@ It is for people who run their own marketplace, publicly or on a home network, a
 - Keeps the last good `index.json` when a package is invalid, and logs the reason.
 - Serves files byte for byte, uncompressed, with the cache headers the app expects.
 - Mounts your package folder read-only, so the image never holds your packages.
+- Checks version folders and builds `index.json` with `keyring-market check` and `index`. Output and exit codes match `keyring pkg` in Keyring Notes.
 - Builds with the classic Docker builder, so BuildKit (`docker buildx`) is not required.
 
 ## Installation
@@ -86,6 +88,7 @@ Set these in `.env`.
 ## Documentation
 
 - [Run your own marketplace](docs/manual/en/how-to/run-a-marketplace.md)
+- [Check and index packages](docs/manual/en/how-to/check-and-index-packages.md)
 - [Publish marketplace packages](https://github.com/jang2162/keyring-notes/blob/main/docs/manual/en/how-to/publish-packages.md) (in the Keyring Notes repository)
 
 ## License

@@ -9,7 +9,8 @@
 
 Keyring Notes 는 마켓 저장소에서 위젯·테마·언어를 설치합니다. 마켓 저장소는 `index.json` 이 든 정적 파일 폴더입니다.
 이 저장소는 패키지 폴더에서 `index.json` 을 다시 만들고, 앱이 기대하는 대로 파일을 내주는 작은 서버를 빌드합니다.
-여기에는 Docker 구성만 있습니다. 서버 코드는 [Keyring Notes 저장소](https://github.com/jang2162/keyring-notes)의 정한 커밋에서 받고, 패키지는 서버의 폴더에 둡니다.
+같은 코드를 `keyring-market` 명령줄 도구로도 써서, 패키지를 검사하고 정적 호스트에 올릴 `index.json` 을 만들 수 있습니다.
+패키지 검사 코드는 [Keyring Notes 저장소](https://github.com/jang2162/keyring-notes)의 정한 커밋에서 받고, 패키지는 서버의 폴더에 둡니다.
 내 마켓을 공개로 또는 집 안 네트워크에서 운영하는 분, 그리고 공식 마켓 운영자를 위한 것입니다.
 
 ## 주요 기능
@@ -18,6 +19,7 @@ Keyring Notes 는 마켓 저장소에서 위젯·테마·언어를 설치합니�
 - 잘못된 패키지가 있으면 마지막으로 성공한 `index.json` 을 그대로 두고 이유를 로그에 남깁니다.
 - 파일을 압축하지 않고 바이트 그대로, 앱이 기대하는 캐시 헤더와 함께 내줍니다.
 - 패키지 폴더를 읽기 전용으로 마운트하므로, 이미지에는 패키지가 들어가지 않습니다.
+- `keyring-market check`·`index` 로 판 폴더를 검사하고 `index.json` 을 만듭니다. 출력과 종료 코드는 Keyring Notes 의 `keyring pkg` 와 같습니다.
 - 옛 Docker 빌더로 빌드되므로 BuildKit(`docker buildx`)이 없어도 됩니다.
 
 ## 설치
@@ -87,6 +89,7 @@ market
 ## 문서
 
 - [내 마켓플레이스 운영하기](docs/manual/ko/how-to/run-a-marketplace.md)
+- [패키지 검사하고 목록 만들기](docs/manual/ko/how-to/check-and-index-packages.md)
 - [마켓 패키지 올리기](https://github.com/jang2162/keyring-notes/blob/main/docs/manual/ko/how-to/publish-packages.md)(Keyring Notes 저장소)
 
 ## 라이선스

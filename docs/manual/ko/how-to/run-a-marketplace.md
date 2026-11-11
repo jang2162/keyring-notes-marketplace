@@ -14,7 +14,7 @@
 
 저장소는 정적 파일 폴더라 두 가지 중에서 고릅니다.
 
-- **아무 정적 호스팅.** 폴더에서 `pkg index` 를 실행한 뒤 올립니다. [저장소 올리기](https://github.com/jang2162/keyring-notes/blob/main/docs/manual/ko/how-to/publish-packages.md#저장소-올리기)를 보세요.
+- **아무 정적 호스팅.** 폴더에서 `keyring-market index` 를 실행한 뒤 올립니다. [패키지 검사하고 목록 만들기](check-and-index-packages.md)와 [저장소 올리기](https://github.com/jang2162/keyring-notes/blob/main/docs/manual/ko/how-to/publish-packages.md#저장소-올리기)를 보세요.
 - **마켓 서버 이미지.** `index.json` 을 스스로 다시 만들고 알맞은 헤더로 파일을 내줍니다. 이 문서의 나머지는 이것을 씁니다.
 
 이미지에는 패키지가 들어 있지 않습니다. 패키지는 서버의 폴더에 두고 컨테이너에 마운트합니다.
@@ -22,7 +22,7 @@
 ## 준비물
 
 - Docker. [방법 1](#방법-1-docker-compose-로-띄우기)에는 Compose v2, [방법 2](#방법-2-클론-없이-빌드하기)에는 Git 이 필요합니다.
-- 이미지를 빌드하는 동안 `github.com` 과 npm 레지스트리에 접속할 수 있어야 합니다. 빌드가 Keyring Notes 소스와 의존성을 받습니다.
+- 이미지를 빌드하는 동안 `github.com` 과 npm 레지스트리에 접속할 수 있어야 합니다. 빌드가 Keyring Notes 저장소에서 패키지 검사 코드를, npm 에서 나머지 의존성을 받습니다.
 
 BuildKit(`docker buildx`)은 없어도 됩니다. 없으면 Docker 가 옛 빌더로 빌드하고 지원 중단 경고를 출력합니다.
 
@@ -108,25 +108,25 @@ docker rm -f keyring-notes-market
 
 ## 패키지 검사하기
 
-이미지에 Keyring Notes 명령줄이 들어 있어, Keyring Notes 클론 없이도 판 폴더를 검사할 수 있습니다. Compose 에서는 이렇게 합니다.
+이미지에 `keyring-market` 명령줄 도구가 들어 있어, 다른 것을 설치하지 않고도 판 폴더를 검사할 수 있습니다. Compose 에서는 이렇게 합니다.
 
 ```bash
-docker compose exec market node server/dist/cli.js pkg check /srv/market/packages/me/clock/1.0.0
+docker compose exec market keyring-market check /srv/market/packages/me/clock/1.0.0
 ```
 
 ```text
 OK: @me/clock@1.0.0 (widget)
 ```
 
-`docker run` 으로 띄웠다면 `docker compose exec market` 대신 `docker exec keyring-notes-market` 을 씁니다. 오류가 있으면 종료 코드 `1` 로 끝납니다. 무엇을 검사하는지는 [패키지를 검사하고 목록 만들기](https://github.com/jang2162/keyring-notes/blob/main/docs/manual/ko/how-to/publish-packages.md#패키지를-검사하고-목록-만들기)를 보세요.
+`docker run` 으로 띄웠다면 `docker compose exec market` 대신 `docker exec keyring-notes-market` 을 씁니다. 오류가 있으면 종료 코드 `1` 로 끝납니다. 무엇을 검사하는지는 [패키지 검사하고 목록 만들기](check-and-index-packages.md)를 보세요.
 
 ## 새 판 더하기
 
 1. 새 판 폴더를 패키지 폴더와 같은 디스크의 임시 폴더에 복사합니다.
-2. 이미지로 검사합니다. `pkg check` 는 폴더 경로를 보지 않으므로 아무 자리에나 마운트해도 됩니다.
+2. 이미지로 검사합니다. `keyring-market check` 는 폴더 경로를 보지 않으므로 아무 자리에나 마운트해도 됩니다.
 
    ```bash
-   docker run --rm -v /srv/my-market/incoming/1.2.0:/check:ro keyring-notes-market:local node server/dist/cli.js pkg check /check
+   docker run --rm -v /srv/my-market/incoming/1.2.0:/check:ro keyring-notes-market:local keyring-market check /check
    ```
 
    이미지 이름은 Compose 로 빌드했으면 `keyring-notes-market:local`, 방법 2 로 빌드했으면 `keyring-notes-market` 입니다.
@@ -138,19 +138,15 @@ OK: @me/clock@1.0.0 (widget)
 
 ## Keyring Notes 버전 고르기
 
-이미지는 Keyring Notes 저장소의 한 커밋으로 마켓 서버를 빌드합니다. `Dockerfile` 의 빌드 인자 `KEYRING_REF` 가 그 커밋입니다.
+서버는 Keyring Notes 저장소의 한 커밋에 있는 패키지 형식으로 패키지를 검사합니다. `package.json` 의 `@keyring-notes/core` 의존성이 그 커밋을 가리킵니다.
 
-Keyring Notes 가 패키지 형식이나 마켓 서버를 바꾸면 이 저장소가 `KEYRING_REF` 를 올립니다. 다른 커밋으로 빌드하려면 전체 커밋 SHA 를 넘깁니다. Compose 에서는 `compose.override.yaml` 에 적습니다.
-
-```yaml
-services:
-  market:
-    build:
-      args:
-        KEYRING_REF: <COMMIT_SHA>
+```json
+"@keyring-notes/core": "github:jang2162/keyring-notes#<COMMIT_SHA>&path:packages/core"
 ```
 
-`docker build` 에서는 `--build-arg KEYRING_REF=<COMMIT_SHA>` 를 더합니다.
+Keyring Notes 가 패키지 형식을 바꾸면 이 저장소가 그 커밋을 올립니다. 올린 것을 받으려면 이 저장소를 pull 하고 이미지를 다시 빌드하세요.
+
+다른 커밋을 쓰려면 클론에서 `<COMMIT_SHA>` 를 전체 커밋 SHA 로 바꿉니다. 그다음 `pnpm install` 로 `pnpm-lock.yaml` 을 고치고 이미지를 다시 빌드하세요. 이미지 빌드는 `pnpm-lock.yaml` 대로 설치하므로, `package.json` 과 맞지 않으면 실패합니다.
 
 ## HTTPS 뒤에 두기
 
@@ -191,5 +187,6 @@ marketplace:
 
 ## 다음 단계
 
+- [패키지 검사하고 목록 만들기](check-and-index-packages.md)
 - [마켓 패키지 올리기](https://github.com/jang2162/keyring-notes/blob/main/docs/manual/ko/how-to/publish-packages.md)
 - [패키지 설치하기](https://github.com/jang2162/keyring-notes/blob/main/docs/manual/ko/how-to/install-packages.md)

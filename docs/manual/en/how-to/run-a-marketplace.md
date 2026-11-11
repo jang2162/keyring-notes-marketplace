@@ -13,7 +13,7 @@ To make the packages themselves, see [Publish marketplace packages](https://gith
 
 A repository is a folder of static files, so you have two choices:
 
-- **Any static host.** Run `pkg index` on your folder and upload it. See [Host the repository](https://github.com/jang2162/keyring-notes/blob/main/docs/manual/en/how-to/publish-packages.md#host-the-repository).
+- **Any static host.** Run `keyring-market index` on your folder and upload it. See [Check and index packages](check-and-index-packages.md) and [Host the repository](https://github.com/jang2162/keyring-notes/blob/main/docs/manual/en/how-to/publish-packages.md#host-the-repository).
 - **The marketplace server image.** It rebuilds `index.json` by itself and serves the files with the right headers. The rest of this guide uses it.
 
 The image does not contain any packages. You keep them in a folder on your server and mount it into the container.
@@ -21,7 +21,7 @@ The image does not contain any packages. You keep them in a folder on your serve
 ## Requirements
 
 - Docker. Compose v2 for [Option 1](#option-1-run-with-docker-compose), Git for [Option 2](#option-2-build-without-a-clone).
-- Network access to `github.com` and the npm registry while the image builds. The build downloads the Keyring Notes source and its dependencies.
+- Network access to `github.com` and the npm registry while the image builds. The build downloads the package checks from the Keyring Notes repository, and the other dependencies from npm.
 
 BuildKit (`docker buildx`) is not required. Without it, Docker falls back to the classic builder and prints a deprecation warning.
 
@@ -107,25 +107,25 @@ Then run the same `docker run` command again.
 
 ## Check a package
 
-The image contains the Keyring Notes command line, so you can check a version folder without a Keyring Notes clone. With Compose:
+The image contains the `keyring-market` command line, so you can check a version folder without installing anything else. With Compose:
 
 ```bash
-docker compose exec market node server/dist/cli.js pkg check /srv/market/packages/me/clock/1.0.0
+docker compose exec market keyring-market check /srv/market/packages/me/clock/1.0.0
 ```
 
 ```text
 OK: @me/clock@1.0.0 (widget)
 ```
 
-With `docker run`, use `docker exec keyring-notes-market` instead of `docker compose exec market`. The command exits with code `1` on an error. See [Check a package and build the index](https://github.com/jang2162/keyring-notes/blob/main/docs/manual/en/how-to/publish-packages.md#check-a-package-and-build-the-index) for what it checks.
+With `docker run`, use `docker exec keyring-notes-market` instead of `docker compose exec market`. The command exits with code `1` on an error. See [Check and index packages](check-and-index-packages.md) for what it checks.
 
 ## Add new versions
 
 1. Copy the new version folder into a temporary folder on the same disk as your package folder.
-2. Check it with the image. `pkg check` does not read the folder path, so you can mount the folder anywhere:
+2. Check it with the image. `keyring-market check` does not read the folder path, so you can mount the folder anywhere:
 
    ```bash
-   docker run --rm -v /srv/my-market/incoming/1.2.0:/check:ro keyring-notes-market:local node server/dist/cli.js pkg check /check
+   docker run --rm -v /srv/my-market/incoming/1.2.0:/check:ro keyring-notes-market:local keyring-market check /check
    ```
 
    The image is `keyring-notes-market:local` with Compose and `keyring-notes-market` with Option 2.
@@ -137,19 +137,15 @@ With `docker run`, use `docker exec keyring-notes-market` instead of `docker com
 
 ## Choose the Keyring Notes version
 
-The image builds the market server from one commit of the Keyring Notes repository. The `KEYRING_REF` build argument in the `Dockerfile` names that commit.
+The server checks packages with the package format of one commit of the Keyring Notes repository. `package.json` names that commit in the `@keyring-notes/core` dependency:
 
-This repository raises `KEYRING_REF` when Keyring Notes changes the package format or the market server. To build from another commit, pass a full commit SHA. With Compose, add it to `compose.override.yaml`:
-
-```yaml
-services:
-  market:
-    build:
-      args:
-        KEYRING_REF: <COMMIT_SHA>
+```json
+"@keyring-notes/core": "github:jang2162/keyring-notes#<COMMIT_SHA>&path:packages/core"
 ```
 
-With `docker build`, add `--build-arg KEYRING_REF=<COMMIT_SHA>`.
+This repository raises the commit when Keyring Notes changes the package format. To get it, pull this repository and build the image again.
+
+To use another commit, change `<COMMIT_SHA>` in your clone to a full commit SHA. Then run `pnpm install` to update `pnpm-lock.yaml`, and build the image again. The image build installs from `pnpm-lock.yaml` and fails when it does not match `package.json`.
 
 ## Put it behind HTTPS
 
@@ -190,5 +186,6 @@ Repositories higher in the list win when two have the same package id.
 
 ## Next steps
 
+- [Check and index packages](check-and-index-packages.md)
 - [Publish marketplace packages](https://github.com/jang2162/keyring-notes/blob/main/docs/manual/en/how-to/publish-packages.md)
 - [Install packages](https://github.com/jang2162/keyring-notes/blob/main/docs/manual/en/how-to/install-packages.md)

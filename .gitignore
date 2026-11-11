@@ -5,4 +5,8 @@
 # Default package folder (MARKET_PACKAGES). Packages are managed on the server, not in git.
 /packages/
 
+# Build output and dependencies
+node_modules/
+/dist/
+
 .DS_Store

@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "types": ["node"],
+    // core has no dist/ in git: read its TypeScript source through its "keyring-source" export condition.
+    // tsc then checks core's source too, and core needs the DOM lib (see its tsconfig.json).
+    "lib": ["ES2022", "DOM"],
+    "customConditions": ["keyring-source"]
+  },
+  "include": ["src", "test", "scripts", "vitest.config.ts"]
+}
