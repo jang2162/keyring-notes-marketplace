@@ -1,0 +1,8 @@
+# Server-only files. They differ per server and are not committed.
+.env
+/compose.override.yaml
+
+# Default package folder (MARKET_PACKAGES). Packages are managed on the server, not in git.
+/packages/
+
+.DS_Store

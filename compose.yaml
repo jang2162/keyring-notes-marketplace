@@ -1,0 +1,24 @@
+# Keyring Notes marketplace server (a static package repository).
+#
+#   cp .env.example .env
+#   docker compose up -d --build      # http://127.0.0.1:8080/index.json (this computer only)
+#
+# Settings live in .env (see .env.example). This repository has no reverse proxy or TLS:
+# Keyring Notes downloads only from https repositories, so put the server behind a proxy
+# in compose.override.yaml (ignored by git), as docs/manual/en/how-to/run-a-marketplace.md shows.
+services:
+  market:
+    image: keyring-notes-market:local
+    build:
+      context: .
+    # The image is not in a registry: skip pull and build from this repository on every up
+    pull_policy: build
+    restart: unless-stopped
+    init: true
+    ports:
+      - "${MARKET_BIND:-127.0.0.1}:${MARKET_PORT:-8080}:8080"
+    environment:
+      MARKET_REBUILD_SECONDS: ${MARKET_REBUILD_SECONDS:-60}
+      MARKET_NAME: ${MARKET_NAME:-Keyring Notes}
+    volumes:
+      - "${MARKET_PACKAGES:-./packages}:/srv/market/packages:ro"
