@@ -10,3 +10,24 @@ node_modules/
 /dist/
 
 .DS_Store
+
+# Agent handoff documents and session scratch
+.superpowers/
+# Agent worktrees
+/.worktrees/
+# Personal Orca issue command
+/.orca/issue-command
+
+# START Ruler Generated Files
+/.agents/skills
+/.claude/skills
+/.codex/config.toml
+/.codex/config.toml.bak
+/.mcp.json
+/.mcp.json.bak
+/.opencode/skills
+/AGENTS.md
+/AGENTS.md.bak
+/opencode.json
+/opencode.json.bak
+# END Ruler Generated Files

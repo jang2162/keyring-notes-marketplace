@@ -11,12 +11,14 @@
     "keyring-market": "tsx --conditions=keyring-source src/cli.ts",
     "build": "node scripts/build.mjs",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "ruler:apply": "ruler apply"
   },
   "dependencies": {
     "@keyring-notes/core": "github:jang2162/keyring-notes#f9434044394be47a215f03a1d6f6c5ec5539e4ca&path:packages/core"
   },
   "devDependencies": {
+    "@intellectronica/ruler": "0.3.44",
     "@types/node": "^26.6.4",
     "esbuild": "^0.28.2",
     "tsx": "^4.23.15",

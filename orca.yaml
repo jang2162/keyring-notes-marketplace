@@ -1,0 +1,10 @@
+# Orca worktree setup. Rules: docs/guideline/orca/06-orca-yaml.md.
+# Local files (.env, compose.override.yaml, packages/) are not copied; tests use test/fixtures/market.
+# The runtime is not pinned (no mise.toml): engines needs node >=22.13, pnpm follows packageManager.
+scripts:
+  setup: |
+    set -e
+    pnpm install --frozen-lockfile
+    # Agent guide outputs (AGENTS.md, .claude/ and so on) are gitignored, so build them in each worktree
+    pnpm exec ruler apply
+setupAgentStartupPolicy: wait-for-setup

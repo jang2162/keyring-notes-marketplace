@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "form": "ruler",
+  "agents": [
+    "claude",
+    "codex",
+    "opencode"
+  ],
+  "sources": {
+    "default": {
+      "server": "https://guideline.develma.com",
+      "items": [
+        "mcp/context7",
+        "rules/base/00-agent.md",
+        "rules/base/01-git.md",
+        "rules/base/02-delegation.md",
+        "rules/base/03-comments.md",
+        "rules/base/04-citation.md",
+        "rules/base/05-verification.md",
+        "rules/base/06-worktree-setup.md",
+        "rules/base/07-worktree-cleanup.md",
+        "rules/base/08-shared-resources.md",
+        "rules/base/09-worker-brief.md",
+        "rules/base/10-package-manager.md",
+        "rules/base/11-docs-layout.md",
+        "rules/base/12-handoff-docs.md",
+        "rules/base/SETUP.md",
+        "rules/komodo/00-stack.md",
+        "rules/komodo/01-environment.md",
+        "rules/komodo/02-override.md",
+        "rules/orca/05-switch.md",
+        "rules/orca/06-orca-yaml.md",
+        "rules/orca/SETUP.md",
+        "rules/public-docs/00-readme.md",
+        "rules/public-docs/01-images.md",
+        "rules/public-docs/02-manual.md",
+        "rules/public-docs/03-i18n.md",
+        "rules/public-docs/04-style.md",
+        "rules/public-docs/05-support.md",
+        "rules/public-docs/06-readme-template.md",
+        "rules/public-docs/07-release-check.md",
+        "rules/ruler/00-sources.md",
+        "rules/ruler/01-nested.md",
+        "rules/ruler/02-documents.md",
+        "rules/ruler/SETUP.md",
+        "skills/guideline-export",
+        "skills/guideline-sync",
+        "skills/orca-worker"
+      ]
+    }
+  }
+}

@@ -1,0 +1,369 @@
+{
+  "version": 2,
+  "revisions": {
+    "default": 33
+  },
+  "sources": {
+    "default:mcp/context7": "8f182786a2622ee518d5fe624bb4725715b0337962923d51c73d16ef3ba2044f",
+    "default:rules/base/00-agent.md": "8769ce88bbe59ad56fb00ab23e4b303befafc1d73f764be15033b245ff66bb89",
+    "default:rules/base/01-git.md": "a6c05de86c1758ba1a3da5454a520c54b81573947fb56c527b323286aa299972",
+    "default:rules/base/02-delegation.md": "eef0e640070a54f161d3807e14af6c52231bbca488bd38d0552cf00be637676e",
+    "default:rules/base/03-comments.md": "d18bac13199f983c8dc0f68adb7e32097635a76704c97f0b464687e6ce01affa",
+    "default:rules/base/04-citation.md": "87b96849e759914d0ce71c96e1e48d4cf783e0632f56cf3ea8c06241a9229ae8",
+    "default:rules/base/05-verification.md": "f781c9a139fb99592276239352afb95cbaf7c905b31812bebfd98f46eb1dd728",
+    "default:rules/base/06-worktree-setup.md": "4fb84f38bbe4bb6b47e6d6a1c57f9df3a358f75d52737c029dac4c4fa653c66b",
+    "default:rules/base/07-worktree-cleanup.md": "3d863656af30d5ce1a68fb338ec31583db48bc3b2ae0997a3e18f3ee0cbf2fe1",
+    "default:rules/base/08-shared-resources.md": "3b7644b877d6828350c24eaaecccd31d35b29308424df50ca29680d6afbd365f",
+    "default:rules/base/09-worker-brief.md": "ac2f0fd7e49b63041ee92bae73ab3f46f5a5666da4c94697d57220099af72fdc",
+    "default:rules/base/10-package-manager.md": "806ebd01304ffd9074c89775ecf643e3d88a83f2adb65399bfb5d32bcd59835b",
+    "default:rules/base/11-docs-layout.md": "8def8e3594ee2bad6e268e1bc64b01bb337228cdd0d3d2771abe033c08bb4bd2",
+    "default:rules/base/12-handoff-docs.md": "af802bc8c52903064076d2973d2da191bfcc8f6c849917ede35394cab9ac48a2",
+    "default:rules/base/SETUP.md": "81c3c324112f164aaf89d13166ae4e57642ab6937e9ad855d3787d7d48e52103",
+    "default:rules/komodo/00-stack.md": "a59767508bd633848f14c7e5fec0b4958dfeec00bb99d819a72c2fa8f645df6a",
+    "default:rules/komodo/01-environment.md": "8ad000befaca09c3dd1ef565ce2de43d07939682d789a1978d1f792741c4d898",
+    "default:rules/komodo/02-override.md": "06bce5f009fafa0173c91f0e6729ef538f36d2d18c28729b3790c94e8589ea28",
+    "default:rules/orca/05-switch.md": "4b6e39bef3090fd5054574c9ae3b2b1ebf1eba251e497292895920753b68f3e0",
+    "default:rules/orca/06-orca-yaml.md": "630b8f93ca4b41936463d8f1274ce74dd678475f95011e859a6c8615bccb757d",
+    "default:rules/orca/SETUP.md": "cb49f07b7fb192f376ff40672866ee878cec64e5d73d1829b91cc8ac32944cd3",
+    "default:rules/public-docs/00-readme.md": "12e42a49fa850a87bebdd79f752315084dc31e690d5ed41c9be2f12edddd0127",
+    "default:rules/public-docs/01-images.md": "aff2406ed0070c5b90d98f4c664246582fad6e73e197b302b5cbd4a27392328a",
+    "default:rules/public-docs/02-manual.md": "5522399adf3416795693f54aa1ac91abd7ec89d167de35cbc81eaa80d619131a",
+    "default:rules/public-docs/03-i18n.md": "c2ad0855890bb1e60b76d0e58315e95d2593810f6cda6970eaafb2775b56509c",
+    "default:rules/public-docs/04-style.md": "c5e9a38a6fbf3b59153f3f359dc17cc99fd6f5e942e02d2cb861d03ca0ec78db",
+    "default:rules/public-docs/05-support.md": "e3d49377aaa7a9c27dead714beb90a96fe56aa7008334087e63b434e16665846",
+    "default:rules/public-docs/06-readme-template.md": "4a5b65383ab8b3b32764a9f7e07489516c0d105c128d31bd68c1515e06b4b435",
+    "default:rules/public-docs/07-release-check.md": "9bcfdda213473e4fa935669aaec47624549f4f640a99fb86b753b9575511b4d7",
+    "default:rules/ruler/00-sources.md": "3818b076744f962c1d84a7897abf0b9bf69e02af7288840671170d99d0253379",
+    "default:rules/ruler/01-nested.md": "aac752f0592f7c5d863df6da387504a5b62809b5fcdaca201e3774f68bc7367a",
+    "default:rules/ruler/02-documents.md": "5ec1a082098d747b22905bea5178f76bd9d46b84db83216506b874da3ab08189",
+    "default:rules/ruler/SETUP.md": "a39cccbe591d83034567c291707a1e9a6ce17359b8ce40135cdc05dcfd867407",
+    "default:skills/guideline-export": "410661cf5e1afd5e91146070db113e4986e687b01ebf3e6815d7e22243027acb",
+    "default:skills/guideline-sync": "853f8c2d3688e5ddce2b6a43c1ada349639f9177619a1b32ef58683ee0494dec",
+    "default:skills/orca-worker": "a212c768597c0b1eda8d2ebecc3c07e597edaaff3c240be2fe95fc4aad8dc040"
+  },
+  "outputs": [
+    {
+      "path": ".ruler/base/00-agent.md",
+      "items": [
+        "default:rules/base/00-agent.md"
+      ],
+      "hash": "61a41651671762bf0ba2f28e76243a5fda8b826fc36e33ba815d327d314f416b"
+    },
+    {
+      "path": ".ruler/base/01-git.md",
+      "items": [
+        "default:rules/base/01-git.md"
+      ],
+      "hash": "5df380ecf5c57e0d90c52a428b8189314c7f13955a5fcff956eb2c70a0fe7953"
+    },
+    {
+      "path": ".ruler/base/02-delegation.md",
+      "items": [
+        "default:rules/base/02-delegation.md"
+      ],
+      "hash": "fadfae756797dc36afd37bc4ffb0c5b65f4af3e714b337ea351e5a538f658c8e"
+    },
+    {
+      "path": ".ruler/base/05-verification.md",
+      "items": [
+        "default:rules/base/05-verification.md"
+      ],
+      "hash": "4dcca613ea8e6a805a374c2db9ad7952e66c6a1d44fb94e620e3d41f45db38b6"
+    },
+    {
+      "path": ".ruler/base/10-package-manager.md",
+      "items": [
+        "default:rules/base/10-package-manager.md"
+      ],
+      "hash": "09bf1d2cc4b1ff455fbabcf040777fde1628030c8d606c5fe06550cd1afabe40"
+    },
+    {
+      "path": ".ruler/base/99-reference.md",
+      "items": [],
+      "hash": "76d69f9c1691b0eb6f611def80013bdabe1ae0b85595e1dd09b85f83e3675085"
+    },
+    {
+      "path": ".ruler/guideline.md",
+      "items": [],
+      "hash": "c4b692b02aef8eeb19471119f1fbd0c64b3364b19346da94937a5f76e48a6336"
+    },
+    {
+      "path": ".ruler/komodo/99-reference.md",
+      "items": [],
+      "hash": "d152a306ca0f3d1b38b8d46eeb947b788a9cf35a69867c4ffd1524726ba91b6c"
+    },
+    {
+      "path": ".ruler/orca/05-switch.md",
+      "items": [
+        "default:rules/orca/05-switch.md"
+      ],
+      "hash": "28db3be5a38d1c74ed8bc06ddc7aa27c317eedaa96062a4fb075c07e3bcc35f5"
+    },
+    {
+      "path": ".ruler/orca/99-reference.md",
+      "items": [],
+      "hash": "3499fb8a7aa61cb183ee30281cd84142216fa48edc786358ade0bece8ccae874"
+    },
+    {
+      "path": ".ruler/public-docs/99-reference.md",
+      "items": [],
+      "hash": "35ab3787168c8b98f939d6b7d24d0c6050e36fdbc5b4242dccdde7eb6ed7580d"
+    },
+    {
+      "path": ".ruler/ruler.toml",
+      "key": "mcp_servers.context7",
+      "items": [
+        "default:mcp/context7"
+      ],
+      "hash": "08125221e5acb223ca37f9da6a86b34830c3acda280b83b221b22eeb34b62c93"
+    },
+    {
+      "path": ".ruler/ruler/00-sources.md",
+      "items": [
+        "default:rules/ruler/00-sources.md"
+      ],
+      "hash": "0d8e552e9a0a13f80609a72b03456b592f1b146a13a49151e7645701aafabc8e"
+    },
+    {
+      "path": ".ruler/ruler/99-reference.md",
+      "items": [],
+      "hash": "c09bd435fc7ff9760ecdf68f6b04394d931a6e4e235141292dae28fd37697774"
+    },
+    {
+      "path": ".ruler/skills/guideline-export/SKILL.md",
+      "items": [
+        "default:skills/guideline-export"
+      ],
+      "hash": "d73cc61af3bcea5f3d34bff122c6e09f71bbdd246d95ba0b0159f64b02b91d90"
+    },
+    {
+      "path": ".ruler/skills/guideline-sync/SKILL.md",
+      "items": [
+        "default:skills/guideline-sync"
+      ],
+      "hash": "efd2ffda9c44a6413eb528ece1c52b67ea394c4b47118bff33d7be91e03a5c1b"
+    },
+    {
+      "path": ".ruler/skills/orca-worker/SKILL.md",
+      "items": [
+        "default:skills/orca-worker"
+      ],
+      "hash": "86d6d3971e98a0d900a9a2a364904707e33c86aa790fa15aeb467c40e63c0b64"
+    },
+    {
+      "path": ".ruler/skills/orca-worker/cleanup.md",
+      "items": [
+        "default:skills/orca-worker"
+      ],
+      "hash": "9e688e3c2cc920fb776984b2d091447b72e245519ec2a7bb02daae9fb401f492"
+    },
+    {
+      "path": ".ruler/skills/orca-worker/delivery.md",
+      "items": [
+        "default:skills/orca-worker"
+      ],
+      "hash": "719e38dc7ba8e514ef9cefcda02286fcd2cb135904bbc8fd3201cd4eb83f3836"
+    },
+    {
+      "path": ".ruler/skills/orca-worker/dispatch.md",
+      "items": [
+        "default:skills/orca-worker"
+      ],
+      "hash": "b6ea2f4f042f042562e3f01b9a07208b95e7215dfd9b4764d5b1f055393be578"
+    },
+    {
+      "path": ".ruler/skills/orca-worker/worker-start.md",
+      "items": [
+        "default:skills/orca-worker"
+      ],
+      "hash": "83fd3bc93cf293e14f5231f259936545c3f735755a86104ac7dd7d78ce877421"
+    },
+    {
+      "path": ".ruler/skills/orca-worker/worktree.md",
+      "items": [
+        "default:skills/orca-worker"
+      ],
+      "hash": "84715e3b693649831cd757ba544d2d6a6bf66c11a9bb1b38bca0d7b6d0e69a89"
+    },
+    {
+      "path": "docs/guideline/README.md",
+      "items": [],
+      "hash": "fde54907d2df64c10707b9551e654d7fdd8a8fea07df1c2a4edfda817a9c64db"
+    },
+    {
+      "path": "docs/guideline/base/03-comments.md",
+      "items": [
+        "default:rules/base/03-comments.md"
+      ],
+      "hash": "c536a05c4a0765b2d313109b15d36379a3d104e726a3198f8b653c087794de37"
+    },
+    {
+      "path": "docs/guideline/base/04-citation.md",
+      "items": [
+        "default:rules/base/04-citation.md"
+      ],
+      "hash": "4f9352eb322414119eb4edbf98c9eafa441a566dc2acaf1a894218866f41e1d9"
+    },
+    {
+      "path": "docs/guideline/base/06-worktree-setup.md",
+      "items": [
+        "default:rules/base/06-worktree-setup.md"
+      ],
+      "hash": "467713d3ed417405ff357cc6c225416729356657825baf2bcde638dcdf1ed2c5"
+    },
+    {
+      "path": "docs/guideline/base/07-worktree-cleanup.md",
+      "items": [
+        "default:rules/base/07-worktree-cleanup.md"
+      ],
+      "hash": "895e90036287b03f3f898c4fa0b1270d3d34b6293fe982b4b1b273936f73cbf5"
+    },
+    {
+      "path": "docs/guideline/base/08-shared-resources.md",
+      "items": [
+        "default:rules/base/08-shared-resources.md"
+      ],
+      "hash": "d52ddc75fd5577ce791aa912575ea8413c95db9a7f28c5ce09019f6aab1d3763"
+    },
+    {
+      "path": "docs/guideline/base/09-worker-brief.md",
+      "items": [
+        "default:rules/base/09-worker-brief.md"
+      ],
+      "hash": "2a2ca3188794177eeab94dc5c27fb98fb2362e7eb4107023ac02ed1f086bfa10"
+    },
+    {
+      "path": "docs/guideline/base/11-docs-layout.md",
+      "items": [
+        "default:rules/base/11-docs-layout.md"
+      ],
+      "hash": "e9d75cad62a3efde7cf6bec9262ca7bc047be245609b167fd8e494e57744387f"
+    },
+    {
+      "path": "docs/guideline/base/12-handoff-docs.md",
+      "items": [
+        "default:rules/base/12-handoff-docs.md"
+      ],
+      "hash": "d197b597ce4601d51098d92b39114c2536892aa2ec103aa7c76f6991af8a9c61"
+    },
+    {
+      "path": "docs/guideline/base/SETUP.md",
+      "items": [
+        "default:rules/base/SETUP.md"
+      ],
+      "hash": "81c3c324112f164aaf89d13166ae4e57642ab6937e9ad855d3787d7d48e52103"
+    },
+    {
+      "path": "docs/guideline/komodo/00-stack.md",
+      "items": [
+        "default:rules/komodo/00-stack.md"
+      ],
+      "hash": "33a0ed09ba3a75f26c55c6fb6aff2f10d064b1a25af266393da1b003c37905fb"
+    },
+    {
+      "path": "docs/guideline/komodo/01-environment.md",
+      "items": [
+        "default:rules/komodo/01-environment.md"
+      ],
+      "hash": "e08374ab7808a650d7c2a25be0907ffa1af13e37cd28c7d7f7375eb772b95311"
+    },
+    {
+      "path": "docs/guideline/komodo/02-override.md",
+      "items": [
+        "default:rules/komodo/02-override.md"
+      ],
+      "hash": "3150eb1f35aa5a5d0639c34e4fc3fdda7eb1b134a722cf467710f812a72d04e8"
+    },
+    {
+      "path": "docs/guideline/orca/06-orca-yaml.md",
+      "items": [
+        "default:rules/orca/06-orca-yaml.md"
+      ],
+      "hash": "3e438a5b60397b79ec36a240a8be3eb4c16833c7a4de1f79f344676ea4d2e0e7"
+    },
+    {
+      "path": "docs/guideline/orca/SETUP.md",
+      "items": [
+        "default:rules/orca/SETUP.md"
+      ],
+      "hash": "cb49f07b7fb192f376ff40672866ee878cec64e5d73d1829b91cc8ac32944cd3"
+    },
+    {
+      "path": "docs/guideline/public-docs/00-readme.md",
+      "items": [
+        "default:rules/public-docs/00-readme.md"
+      ],
+      "hash": "3dd4db72079e33ceb1d1195c671708acb0aaea35acad4a69a81ee3fd8339e9ac"
+    },
+    {
+      "path": "docs/guideline/public-docs/01-images.md",
+      "items": [
+        "default:rules/public-docs/01-images.md"
+      ],
+      "hash": "61d41caf417fbbb62cfa8e7a3c127f11944b677ba088512be5439cabe4ed414d"
+    },
+    {
+      "path": "docs/guideline/public-docs/02-manual.md",
+      "items": [
+        "default:rules/public-docs/02-manual.md"
+      ],
+      "hash": "06a6e917c0e89c69e381bc943cede8fa13de8cc37e1e4e92612fdb25c836bb05"
+    },
+    {
+      "path": "docs/guideline/public-docs/03-i18n.md",
+      "items": [
+        "default:rules/public-docs/03-i18n.md"
+      ],
+      "hash": "53f89fa930e3fdeb7afb59dd91a3f6a14fa12fa6432cde8620be64daa85da8c9"
+    },
+    {
+      "path": "docs/guideline/public-docs/04-style.md",
+      "items": [
+        "default:rules/public-docs/04-style.md"
+      ],
+      "hash": "5ce3c0976c79fdb75a488ab60efc87382acb6801e02da866e3fc11bacb45ae0c"
+    },
+    {
+      "path": "docs/guideline/public-docs/05-support.md",
+      "items": [
+        "default:rules/public-docs/05-support.md"
+      ],
+      "hash": "511b6774711eab4200e812d83130ec3a1359b45468da300e0f2b1d29439ab218"
+    },
+    {
+      "path": "docs/guideline/public-docs/06-readme-template.md",
+      "items": [
+        "default:rules/public-docs/06-readme-template.md"
+      ],
+      "hash": "bc897bdb62b9069d814f961d946bb943e9fcb22c6867c209fce82894d40ba73a"
+    },
+    {
+      "path": "docs/guideline/public-docs/07-release-check.md",
+      "items": [
+        "default:rules/public-docs/07-release-check.md"
+      ],
+      "hash": "11901ab1bc494260ea3580d74df8b215b17c7d108ca042554af454161734f953"
+    },
+    {
+      "path": "docs/guideline/ruler/01-nested.md",
+      "items": [
+        "default:rules/ruler/01-nested.md"
+      ],
+      "hash": "97439b56a3bfdcafa5e8b90059543057a583b239b76b229a268c625280b74b0b"
+    },
+    {
+      "path": "docs/guideline/ruler/02-documents.md",
+      "items": [
+        "default:rules/ruler/02-documents.md"
+      ],
+      "hash": "774daf294c636b65e069bb21e920af0c5ce24e82bdecd1dcb3d532889ff4b922"
+    },
+    {
+      "path": "docs/guideline/ruler/SETUP.md",
+      "items": [
+        "default:rules/ruler/SETUP.md"
+      ],
+      "hash": "a39cccbe591d83034567c291707a1e9a6ce17359b8ce40135cdc05dcfd867407"
+    }
+  ]
+}
