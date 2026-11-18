@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@keyring-notes/core':
-        specifier: github:jang2162/keyring-notes#f9434044394be47a215f03a1d6f6c5ec5539e4ca&path:packages/core
-        version: https://codeload.github.com/jang2162/keyring-notes/tar.gz/f9434044394be47a215f03a1d6f6c5ec5539e4ca#path:packages/core
+        specifier: github:jang2162/keyring-notes#3a66340095aa81d839fbf6218214930b9c725d04&path:packages/core
+        version: https://codeload.github.com/jang2162/keyring-notes/tar.gz/3a66340095aa81d839fbf6218214930b9c725d04#path:packages/core
     devDependencies:
       '@intellectronica/ruler':
         specifier: 0.3.44
@@ -207,8 +207,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@keyring-notes/core@https://codeload.github.com/jang2162/keyring-notes/tar.gz/f9434044394be47a215f03a1d6f6c5ec5539e4ca#path:packages/core':
-    resolution: {path: packages/core, tarball: https://codeload.github.com/jang2162/keyring-notes/tar.gz/f9434044394be47a215f03a1d6f6c5ec5539e4ca}
+  '@keyring-notes/core@https://codeload.github.com/jang2162/keyring-notes/tar.gz/3a66340095aa81d839fbf6218214930b9c725d04#path:packages/core':
+    resolution: {path: packages/core, tarball: https://codeload.github.com/jang2162/keyring-notes/tar.gz/3a66340095aa81d839fbf6218214930b9c725d04}
     version: 0.0.0
 
   '@oxc-project/types@0.156.0':
@@ -895,7 +895,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.6.0
 
-  '@keyring-notes/core@https://codeload.github.com/jang2162/keyring-notes/tar.gz/f9434044394be47a215f03a1d6f6c5ec5539e4ca#path:packages/core':
+  '@keyring-notes/core@https://codeload.github.com/jang2162/keyring-notes/tar.gz/3a66340095aa81d839fbf6218214930b9c725d04#path:packages/core':
     dependencies:
       diff: 9.0.0
       yaml: 2.9.1

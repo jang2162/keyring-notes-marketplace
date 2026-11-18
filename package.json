@@ -15,7 +15,7 @@
     "ruler:apply": "ruler apply"
   },
   "dependencies": {
-    "@keyring-notes/core": "github:jang2162/keyring-notes#f9434044394be47a215f03a1d6f6c5ec5539e4ca&path:packages/core"
+    "@keyring-notes/core": "github:jang2162/keyring-notes#3a66340095aa81d839fbf6218214930b9c725d04&path:packages/core"
   },
   "devDependencies": {
     "@intellectronica/ruler": "0.3.44",
